@@ -1,5 +1,6 @@
 :root {
   --main-color: #c271ff;
+  /* button hover opacity */
   --opacity-value: 0.9;
   --background-color: #071629;
   --font-family-1: "Source Sans Pro", sans-serif;
@@ -35,6 +36,7 @@
   font-weight: bold;
 }
 
+/* button hover opacity */
 .btn:hover,
 .btn:active {
   opacity: var(--opacity-value);
@@ -899,4 +901,74 @@
   .results .card {
     width: 90vw;
   }
+}
+/* LOADER KEYFRAMES */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* QUOTES CAROUSEL */
+.quotes .loader {
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #C271FF;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 2s linear infinite;
+  margin: 2rem auto;
+}
+
+/* POPULAR TUTORIALS */
+.popular-tutorials .loader {
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #FF6565;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 2s linear infinite;
+  margin: 2rem auto;
+}
+
+.popular-tutorials .carousel-inner {
+  display: flex;
+}
+.popular-tutorials .carousel-item {
+  flex: 0 0 25%;
+  padding: 0 0.5rem;
+  transition: transform 0.5s ease;
+}
+.popular-tutorials .card {
+  height: 100%;
+  border: none;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+
+.popular-tutorials .carousel-inner {
+  display: block; /* not flex, since we use rows */
+}
+.popular-tutorials .carousel-item .card {
+  margin: 0.5rem;
+  height: 100%;
+}
+
+/* POPULAR TUTORIALS ARROWS */
+.popular-tutorials .carousel-control-prev, 
+.popular-tutorials .carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  background: rgba(0, 0, 0, 0);
+  padding: 10px;
+}
+
+/* moving position of arrows here */
+.popular-tutorials .carousel-control-prev {
+  left: -120px;
+}
+
+.popular-tutorials .carousel-control-next {
+  right: -120px;
 }
