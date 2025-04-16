@@ -17,24 +17,7 @@
       href="https://fonts.googleapis.com/css?family=Coiny&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Bootstrap -->
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-
+    <!-- Bootstrap Styling -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -220,110 +203,31 @@
       </div>
     </header>
     <main class="main">
+      <!-- QUOTES SECTIOIN -->
+      <!-- QUOTES CAROUSEL STARTS HERE -->
       <section class="quotes section d-flex align-items-center">
         <div class="container">
-          <div
-            id="carouselExampleControls"
-            class="carousel slide"
-            data-ride="carousel"
-          >
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="row mx-auto align-items-center">
-                  <div class="col-12 col-sm-2 col-lg-2 offset-lg-1 text-center">
-                    <img
-                      src="images/profile_5.jpg"
-                      class="d-block align-self-center"
-                      alt="Carousel Pic 1"
-                    />
-                  </div>
-                  <div class="col-12 col-sm-7 offset-sm-2 col-lg-9 offset-lg-0">
-                    <div class="quote-text">
-                      <p class="text-white">
-                        « Those tutorials are concise and go straight to the
-                        point. I can’t think of a better place to learn smiling.
-                        And it’s so fun!
-                      </p>
-                      <h4 class="text-white font-weight-bold">Person Name</h4>
-                      <span class="text-white">weather presenter</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="row mx-auto align-items-center">
-                  <div class="col-12 col-sm-2 col-lg-2 offset-lg-1 text-center">
-                    <img
-                      src="images/profile_5.jpg"
-                      class="d-block align-self-center"
-                      alt="Carousel Pic 1"
-                    />
-                  </div>
-                  <div class="col-12 col-sm-7 offset-sm-2 col-lg-9 offset-lg-0">
-                    <div class="quote-text">
-                      <p class="text-white">
-                        « Those tutorials are concise and go straight to the
-                        point. I can’t think of a better place to learn smiling.
-                        And it’s so fun!
-                      </p>
-                      <h4 class="text-white font-weight-bold">Person Name</h4>
-                      <span class="text-white">weather presenter</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="row mx-auto align-items-center">
-                  <div class="col-12 col-sm-2 col-lg-2 offset-lg-1 text-center">
-                    <img
-                      src="images/profile_5.jpg"
-                      class="d-block align-self-center"
-                      alt="Carousel Pic 1"
-                    />
-                  </div>
-                  <div class="col-12 col-sm-7 offset-sm-2 col-lg-9 offset-lg-0">
-                    <div class="quote-text">
-                      <p class="text-white">
-                        « Those tutorials are concise and go straight to the
-                        point. I can’t think of a better place to learn smiling.
-                        And it’s so fun!
-                      </p>
-                      <h4 class="text-white font-weight-bold">Person Name</h4>
-                      <span class="text-white">weather presenter</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <!-- loader is better placed outside of .carousel-inner -->
             </div>
-            <a
-              class="carousel-control-prev arrow-left"
-              href="#carouselExampleControls"
-              role="button"
-              data-slide="prev"
-            >
-              <img
-                src="images/arrow_white_left.png"
-                alt="Quote Previous"
-                aria-hidden="true"
-              />
+      
+            <!-- loader spinner (better placement here) -->
+            <div class="loader"></div>
+      
+            <!-- arrow buttons -->
+            <a class="carousel-control-prev arrow-left" href="#carouselExampleControls" role="button" data-slide="prev">
+              <img src="images/arrow_white_left.png" alt="Quote Previous" aria-hidden="true" />
               <span class="sr-only">Previous</span>
             </a>
-            <a
-              class="carousel-control-next arrow-right"
-              href="#carouselExampleControls"
-              role="button"
-              data-slide="next"
-            >
-              <img
-                src="images/arrow_white_right.png"
-                alt="Quote Next"
-                aria-hidden="true"
-              />
+            <a class="carousel-control-next arrow-right" href="#carouselExampleControls" role="button" data-slide="next">
+              <img src="images/arrow_white_right.png" alt="Quote Next" aria-hidden="true" />
               <span class="sr-only">Next</span>
             </a>
           </div>
         </div>
       </section>
+      <!-- QOUTES CAROUSEL END -->
       <section class="faq section">
         <div class="container">
           <header class="section-header">
@@ -461,5 +365,17 @@
         </div>
       </div>
     </footer>
+    <!-- CALLING SCRIPTS -->
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+<!-- Popper.js (required for Bootstrap JS) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<!-- Your custom JavaScript file -->
+<script src="scripts.js"></script>
   </body>
 </html>
