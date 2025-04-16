@@ -100,4 +100,47 @@ $(document).ready(function () {
         $tutorialsCarouselInner.append('<div class="text-danger">Failed to load tutorials</div>');
       }
     });
-  });
+  
+    // LATEST VIDEOS CAROUSEL
+    const $latestVideosCarouselInner = $('#carouselLatestVideos');
+    const $latestVideosLoader = $('.latest-videos .loader');
+  
+    $.ajax({
+      url: 'https://smileschool-api.hbtn.info/latest-videos',
+      method: 'GET',
+      beforeSend: function () {
+        $latestVideosLoader.show();
+      },
+      success: function (data) {
+        $latestVideosLoader.hide();
+        $latestVideosCarouselInner.empty();
+    
+        // Loop through the video data
+        data.forEach((video, index) => {
+          const activeClass = index === 0 ? 'active' : '';
+          const videoCard = `
+            <div class="carousel-item ${activeClass}">
+              <div class="card">
+                <img src="${video.thumb_url}" class="card-img-top" alt="${video.title}">
+                <div class="card-body">
+                  <h5 class="card-title">${video.title}</h5>
+                  <p class="card-text">${video['sub-title']}</p>
+                  <a href="${video.url}" class="btn btn-primary">Watch Now</a>
+                </div>
+              </div>
+            </div>`;
+          $latestVideosCarouselInner.append(videoCard);
+        });
+
+        // Initialize the carousel for latest videos
+        $('#latestVideosCarousel').carousel({
+          interval: false, // Ensure it slides one card at a time
+          ride: false
+        });
+      },
+      error: function () {
+        $latestVideosLoader.hide();
+        $latestVideosCarouselInner.append('<div class="text-danger">Failed to load latest videos</div>');
+      }
+    });
+});
