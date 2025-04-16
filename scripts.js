@@ -97,13 +97,13 @@ $(document).ready(function () {
               // tried the settings from intranet and didnt seem right
           responsive: [
             {
-              breakpoint: 992,
+              breakpoint: 768,
               settings: {
                 slidesToShow: 2
               }
             },
             {
-              breakpoint: 768,
+              breakpoint: 576,
               settings: {
                 slidesToShow: 1
               }
@@ -168,13 +168,13 @@ $(document).ready(function () {
         // Responsive settings
           responsive: [
             {
-              breakpoint: 992,
+              breakpoint: 768,
               settings: {
                 slidesToShow: 2
               }
             },
             {
-              breakpoint: 768,
+              breakpoint: 576,
               settings: {
                 slidesToShow: 1
               }
