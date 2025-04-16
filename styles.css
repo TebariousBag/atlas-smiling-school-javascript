@@ -965,11 +965,11 @@
 }
 
 .slick-prev {
-  left: 0; /* Move all the way to the left of the padded space */
+  left: 0;
 }
 
 .slick-next {
-  right: 0; /* Move all the way to the right of the padded space */
+  right: 0;
 }
 
 .custom-slick-arrow img {
@@ -987,8 +987,8 @@
 /* Carousel Control Arrows for Latest Videos */
 #latest-carousel {
   position: relative;
-  padding: 0 50px; /* space for arrows */
-  overflow: visible; /* Allow arrows to be visible outside the carousel */
+  padding: 0 50px;
+  overflow: visible;
 }
 
 .custom-slick-arrow {
@@ -997,20 +997,69 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 10; /* Ensure the arrows are on top */
+  z-index: 10;
 }
 
 .slick-prev {
-  left: 0; /* Left of carousel */
-  z-index: 15; /* Ensure the previous arrow is above the carousel */
+  left: 0;
+  z-index: 15;
 }
 
 .slick-next {
-  right: 0; /* Right of carousel */
-  z-index: 15; /* Ensure the next arrow is above the carousel */
+  right: 0;
+  z-index: 15;
 }
 
 .custom-slick-arrow img {
   width: 30px;
   height: auto;
 }
+
+/* play button */
+
+.video-thumbnail-wrapper {
+  position: relative;
+}
+
+.video-thumbnail {
+  width: 100%;
+  height: auto;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  z-index: 10;
+  cursor: pointer;
+
+/* wrapper div */
+  z-index: 5;
+}.video-thumbnail-wrapper {
+  position: relative;
+  z-index: 5;
+}
+
+/* make sure fills screen */
+.video-thumbnail {
+  width: 100%;
+  height: auto;
+}
+
+/* make sure the play button is centered and sized */
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75px;
+  height: 75px;
+  z-index: 10;
+  /* make it clickable */
+  cursor: pointer;
+}
+
+/* end of play button */

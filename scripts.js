@@ -52,10 +52,10 @@ $(document).ready(function () {
       const url = 'https://smileschool-api.hbtn.info/popular-tutorials';
       const loader = $('#popular-loader');
       const carousel = $('#popular-carousel');
-  
+        // Show loader and clear carousel
       loader.show();
       carousel.addClass('d-none').empty();
-  
+        // Fetch data from API
       $.get(url, function (data) {
         loader.hide();
         data.forEach(tutorial => {
@@ -87,6 +87,7 @@ $(document).ready(function () {
            nextArrow: `<button type="button" class="slick-next custom-slick-arrow">
                 <img src="images/arrow_black_right.png" alt="Next">
               </button>`,
+              // Responsive settings
           responsive: [
             {
               breakpoint: 992,
@@ -117,17 +118,21 @@ $(document).ready(function () {
       const url = 'https://smileschool-api.hbtn.info/latest-videos';
       const loader = $('#latest-loader');
       const carousel = $('#latest-carousel');
-  
+        // Show loader and clear carousel
       loader.show();
       carousel.addClass('d-none').empty();
-  
+        // Fetch data from API
+        // added play button
       $.get(url, function (data) {
         loader.hide();
         data.forEach(video => {
           const card = `
             <div class="px-2">
               <div class="card h-100 shadow-sm">
+              <div class="video-thumbnail-wrapper">
                 <img src="${video.thumb_url}" class="card-img-top" alt="${video.title}">
+                <img src="images/play.png" class="play-button" alt="Play">
+              </div>
                 <div class="card-body">
                   <h5 class="card-title">${video.title}</h5>
                   <p class="card-text">${video['sub-title']}</p>
@@ -152,6 +157,7 @@ $(document).ready(function () {
           nextArrow: `<button type="button" class="slick-next custom-slick-arrow">
                         <img src="images/arrow_black_right.png" alt="Next">
                       </button>`,
+        // Responsive settings
           responsive: [
             {
               breakpoint: 992,
