@@ -62,7 +62,10 @@ $(document).ready(function () {
           const card = `
             <div class="px-2">
               <div class="card h-100 shadow-sm">
+              <div class="video-thumbnail-wrapper">
                 <img src="${tutorial.thumb_url}" class="card-img-top" alt="${tutorial.title}">
+                <img src="images/play.png" class="play-button" alt="Play">
+                </div>
                 <div class="card-body">
                   <h5 class="card-title">${tutorial.title}</h5>
                   <p class="card-text">${tutorial['sub-title']}</p>
