@@ -984,63 +984,33 @@
 
 /* POPULAR END */
 
-/* LATEST VIDEOS */
-/* LATEST VIDEOS */
-.latest-videos .loader {
-  border: 10px solid #f3f3f3;
-  border-top: 10px solid #C271FF;
-  border-radius: 50%;
-  width: 80px;
-  height: 80px;
-  animation: spin 2s linear infinite;
-  margin: 2rem auto;
-}
-
-.latest-videos .carousel-inner {
-  display: flex;
-}
-
-.latest-videos .carousel-item {
-  flex: 0 0 25%; /* 4 cards per view */
-  padding: 0 0.5rem;
-  transition: transform 0.5s ease;
-}
-
-.latest-videos .card {
-  height: 100%;
-  border: none;
-  background-color: #fff;
-  border-radius: 1rem;
-}
-
 /* Carousel Control Arrows for Latest Videos */
-.latest-videos .carousel-control-prev,
-.latest-videos .carousel-control-next {
+#latest-carousel {
+  position: relative;
+  padding: 0 50px; /* space for arrows */
+  overflow: visible; /* Allow arrows to be visible outside the carousel */
+}
+
+.custom-slick-arrow {
+  background: transparent;
+  border: none;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 1;
-  background: rgba(0, 0, 0, 0);
-  padding: 10px;
+  z-index: 10; /* Ensure the arrows are on top */
 }
 
-.latest-videos .carousel-control-prev {
-  left: -120px;
+.slick-prev {
+  left: 0; /* Left of carousel */
+  z-index: 15; /* Ensure the previous arrow is above the carousel */
 }
 
-.latest-videos .carousel-control-next {
-  right: -120px;
+.slick-next {
+  right: 0; /* Right of carousel */
+  z-index: 15; /* Ensure the next arrow is above the carousel */
 }
 
-.latest-videos .carousel-inner {
-  display: flex;
-}
-.latest-videos .carousel-item {
-  flex: 0 0 100%; /* Each item fills 100% width */
-  transition: transform 0.5s ease;
-}
-.latest-videos .card {
-  height: 100%;
-  border: none;
-  border-radius: 1rem;
+.custom-slick-arrow img {
+  width: 30px;
+  height: auto;
 }
