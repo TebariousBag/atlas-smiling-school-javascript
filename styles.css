@@ -978,7 +978,7 @@
 /* LATEST VIDEOS */
 .latest-videos .loader {
   border: 10px solid #f3f3f3;
-  border-top: 10px solid #FF6565;
+  border-top: 10px solid #C271FF;
   border-radius: 50%;
   width: 80px;
   height: 80px;
@@ -1020,4 +1020,17 @@
 
 .latest-videos .carousel-control-next {
   right: -120px;
+}
+
+.latest-videos .carousel-inner {
+  display: flex;
+}
+.latest-videos .carousel-item {
+  flex: 0 0 100%; /* Each item fills 100% width */
+  transition: transform 0.5s ease;
+}
+.latest-videos .card {
+  height: 100%;
+  border: none;
+  border-radius: 1rem;
 }

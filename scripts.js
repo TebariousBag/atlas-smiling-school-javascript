@@ -2,7 +2,7 @@ $(document).ready(function () {
     // QUOTES CAROUSEL
     const $quotesCarouselInner = $('.quotes .carousel-inner');
     const $quotesLoader = $('.quotes .loader');
-  
+    // Quotes API request
     $.ajax({
       url: 'https://smileschool-api.hbtn.info/quotes',
       method: 'GET',
@@ -39,10 +39,10 @@ $(document).ready(function () {
       }
     });
   
-    // TUTORIALS CAROUSEL
+    // POPULAR TUTORIALS CAROUSEL
     const $tutorialsCarouselInner = $('#carouselTutorials');
     const $tutorialLoader = $('.popular-tutorials .loader');
-  
+    // Tutorials API request
     $.ajax({
       url: 'https://smileschool-api.hbtn.info/popular-tutorials',
       method: 'GET',
@@ -52,11 +52,10 @@ $(document).ready(function () {
       success: function (data) {
         $tutorialLoader.hide();
         $tutorialsCarouselInner.empty();
-      
-        // Group tutorials into sets of 4 per carousel-item
+  
         for (let i = 0; i < data.length; i += 4) {
           const activeClass = i === 0 ? 'active' : '';
-      
+  
           let cards = '';
           for (let j = i; j < i + 4 && j < data.length; j++) {
             const tutorial = data[j];
@@ -79,17 +78,17 @@ $(document).ready(function () {
                 </div>
               </div>`;
           }
-      
+  
           const slide = `
             <div class="carousel-item ${activeClass}">
               <div class="row">
                 ${cards}
               </div>
             </div>`;
-      
+  
           $tutorialsCarouselInner.append(slide);
         }
-      
+  
         $('#tutorialCarousel').carousel({
           interval: false,
           ride: false
@@ -102,9 +101,9 @@ $(document).ready(function () {
     });
   
     // LATEST VIDEOS CAROUSEL
-    const $latestVideosCarouselInner = $('#carouselLatestVideos');
+    const $latestVideosCarouselInner = $('#latestVideosCarousel .carousel-inner');
     const $latestVideosLoader = $('.latest-videos .loader');
-  
+    // Latest Videos API request
     $.ajax({
       url: 'https://smileschool-api.hbtn.info/latest-videos',
       method: 'GET',
@@ -114,27 +113,46 @@ $(document).ready(function () {
       success: function (data) {
         $latestVideosLoader.hide();
         $latestVideosCarouselInner.empty();
-    
-        // Loop through the video data
-        data.forEach((video, index) => {
-          const activeClass = index === 0 ? 'active' : '';
-          const videoCard = `
-            <div class="carousel-item ${activeClass}">
-              <div class="card">
-                <img src="${video.thumb_url}" class="card-img-top" alt="${video.title}">
-                <div class="card-body">
-                  <h5 class="card-title">${video.title}</h5>
-                  <p class="card-text">${video['sub-title']}</p>
-                  <a href="${video.url}" class="btn btn-primary">Watch Now</a>
+        // Loop through the data and create carousel items
+        for (let i = 0; i < data.length; i += 4) {
+          const activeClass = i === 0 ? 'active' : '';
+  
+          let cards = '';
+          for (let j = i; j < i + 4 && j < data.length; j++) {
+            const video = data[j];
+            // card structure for each video
+            cards += `
+              <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card h-100">
+                  <img src="${video.thumb_url}" class="card-img-top" alt="${video.title}">
+                  <div class="card-body">
+                    <h5 class="card-title">${video.title}</h5>
+                    <p class="card-text">${video['sub-title']}</p>
+                    <div class="d-flex align-items-center mt-3">
+                      <img src="${video.author_pic_url}" class="rounded-circle mr-2" width="30" height="30" alt="${video.author}">
+                      <small class="text-muted">${video.author}</small>
+                    </div>
+                    <div class="mt-2">
+                      <span class="text-warning">${'★'.repeat(video.star)}${'☆'.repeat(5 - video.star)}</span>
+                      <small class="text-muted float-right">${video.duration}</small>
+                    </div>
+                  </div>
                 </div>
+              </div>`;
+          }
+          // slide
+          const slide = `
+            <div class="carousel-item ${activeClass}">
+              <div class="row">
+                ${cards}
               </div>
             </div>`;
-          $latestVideosCarouselInner.append(videoCard);
-        });
-
-        // Initialize the carousel for latest videos
+  
+          $latestVideosCarouselInner.append(slide);
+        }
+  
         $('#latestVideosCarousel').carousel({
-          interval: false, // Ensure it slides one card at a time
+          interval: false,
           ride: false
         });
       },
@@ -143,4 +161,4 @@ $(document).ready(function () {
         $latestVideosCarouselInner.append('<div class="text-danger">Failed to load latest videos</div>');
       }
     });
-});
+  });
