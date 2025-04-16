@@ -231,10 +231,11 @@
         </div>
       </section>
     <!-- LATEST VIDEOS SECTION START -->
+     <!-- container and add padding -->
 <section class="container py-5">
   <h2 class="text-center mb-4">Latest <span class="text-primary">videos</span></h2>
 
-  <!-- Loader -->
+  <!-- Loader with Bootstrap -->
    <!-- Make sure loader color same as intranet-->
   <div id="latest-loader" class="text-center py-5">
     <div class="spinner-border" style="color: #c271ff;" role="status">
@@ -243,6 +244,8 @@
   </div>
 
   <!-- Carousel Wrapper -->
+   <!-- This is hidden until the ajax request completes -->
+    <!-- then the cards will be deployed here -->
   <div id="latest-carousel" class="slick-carousel d-none"></div>
 </section>
 <!-- LATEST VIDEOS SECTION END -->

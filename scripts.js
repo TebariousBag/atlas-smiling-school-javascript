@@ -56,6 +56,7 @@ $(document).ready(function () {
       loader.show();
       carousel.addClass('d-none').empty();
         // Fetch data from API
+        // format for cards and pulling the data from api to fill card
       $.get(url, function (data) {
         loader.hide();
         data.forEach(tutorial => {
@@ -78,12 +79,14 @@ $(document).ready(function () {
         });
   
         // Initialize slick carousel
+        // remove the hidden part
         carousel.removeClass('d-none').slick({
           slidesToShow: 4,
           slidesToScroll: 1,
           infinite: true,
           arrows: true,
           dots: false,
+          // added correct buttons
           prevArrow: `<button type="button" class="slick-prev custom-slick-arrow">
                 <img src="images/arrow_black_left.png" alt="Previous">
               </button>`,
@@ -91,6 +94,7 @@ $(document).ready(function () {
                 <img src="images/arrow_black_right.png" alt="Next">
               </button>`,
               // Responsive settings
+              // tried the settings from intranet and didnt seem right
           responsive: [
             {
               breakpoint: 992,
@@ -116,6 +120,7 @@ $(document).ready(function () {
 });
 
 // LATEST VIDEOS SECTION
+// basically the same as the popular videos section
 $(document).ready(function () {
     function loadLatestVideos() {
       const url = 'https://smileschool-api.hbtn.info/latest-videos';
