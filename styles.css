@@ -955,24 +955,34 @@
 }
 
 /* POPULAR TUTORIALS ARROWS */
-.popular-tutorials .carousel-control-prev, 
-.popular-tutorials .carousel-control-next {
+.custom-slick-arrow {
+  background: transparent;
+  border: none;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 1;
-  background: rgba(0, 0, 0, 0);
-  padding: 10px;
+  z-index: 10;
 }
 
-/* moving position of arrows here */
-.popular-tutorials .carousel-control-prev {
-  left: -120px;
+.slick-prev {
+  left: 0; /* Move all the way to the left of the padded space */
 }
 
-.popular-tutorials .carousel-control-next {
-  right: -120px;
+.slick-next {
+  right: 0; /* Move all the way to the right of the padded space */
 }
+
+.custom-slick-arrow img {
+  width: 30px;
+  height: auto;
+}
+
+#popular-carousel {
+  padding: 0 50px; /* give space for arrows on both sides */
+}
+
+
+/* POPULAR END */
 
 /* LATEST VIDEOS */
 /* LATEST VIDEOS */

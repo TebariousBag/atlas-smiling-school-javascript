@@ -45,67 +45,7 @@ $(document).ready(function () {
       }
     });
 
-    // POPULAR TUTORIALS CAROUSEL
-    const $tutorialsCarouselInner = $('#carouselTutorials');
-    const $tutorialLoader = $('.popular-tutorials .loader');
-    // Tutorials API request
-    $.ajax({
-      url: 'https://smileschool-api.hbtn.info/popular-tutorials',
-      method: 'GET',
-      beforeSend: function () {
-        $tutorialLoader.show();
-      },
-      success: function (data) {
-        $tutorialLoader.hide();
-        $tutorialsCarouselInner.empty();
-
-        for (let i = 0; i < data.length; i += 4) {
-          const activeClass = i === 0 ? 'active' : '';
-
-          let cards = '';
-          for (let j = i; j < i + 4 && j < data.length; j++) {
-            const tutorial = data[j];
-            cards += `
-              <div class="col-12 col-sm-6 col-lg-3">
-                <div class="card h-100">
-                  <img src="${tutorial.thumb_url}" class="card-img-top" alt="${tutorial.title}">
-                  <div class="card-body">
-                    <h5 class="card-title">${tutorial.title}</h5>
-                    <p class="card-text">${tutorial['sub-title']}</p>
-                    <div class="d-flex align-items-center mt-3">
-                      <img src="${tutorial.author_pic_url}" class="rounded-circle mr-2" width="30" height="30" alt="${tutorial.author}">
-                      <small class="text-muted">${tutorial.author}</small>
-                    </div>
-                    <div class="mt-2">
-                      <span class="text-warning">${'★'.repeat(tutorial.star)}${'☆'.repeat(5 - tutorial.star)}</span>
-                      <small class="text-muted float-right">${tutorial.duration}</small>
-                    </div>
-                  </div>
-                </div>
-              </div>`;
-          }
-
-          const slide = `
-            <div class="carousel-item ${activeClass}">
-              <div class="row">
-                ${cards}
-              </div>
-            </div>`;
-
-          $tutorialsCarouselInner.append(slide);
-        }
-
-        // Re-initialize carousel after loading content
-        $('#tutorialCarousel').carousel({
-          interval: false,
-          ride: false
-        });
-      },
-      error: function () {
-        $tutorialLoader.hide();
-        $tutorialsCarouselInner.append('<div class="text-danger">Failed to load tutorials</div>');
-      }
-    });
+    
 
     // LATEST VIDEOS CAROUSEL
     const $latestVideosCarouselInner = $('#latestVideosCarousel .carousel-inner');
@@ -170,3 +110,68 @@ $(document).ready(function () {
       }
     });
 });
+
+// POPULAR VIDEOS SECTION
+$(document).ready(function () {
+    function loadPopularTutorials() {
+      const url = 'https://smileschool-api.hbtn.info/popular-tutorials';
+      const loader = $('#popular-loader');
+      const carousel = $('#popular-carousel');
+  
+      loader.show();
+      carousel.addClass('d-none').empty();
+  
+      $.get(url, function (data) {
+        loader.hide();
+        data.forEach(tutorial => {
+          const card = `
+            <div class="px-2">
+              <div class="card h-100 shadow-sm">
+                <img src="${tutorial.thumb_url}" class="card-img-top" alt="${tutorial.title}">
+                <div class="card-body">
+                  <h5 class="card-title">${tutorial.title}</h5>
+                  <p class="card-text">${tutorial['sub-title']}</p>
+                  <p class="card-text small text-muted">By ${tutorial.author} • ${tutorial.duration}</p>
+                </div>
+              </div>
+            </div>
+          `;
+          carousel.append(card);
+        });
+  
+        // Initialize slick carousel
+        carousel.removeClass('d-none').slick({
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+          arrows: true,
+          dots: false,
+          prevArrow: `<button type="button" class="slick-prev custom-slick-arrow">
+                <img src="images/arrow_black_left.png" alt="Previous">
+              </button>`,
+           nextArrow: `<button type="button" class="slick-next custom-slick-arrow">
+                <img src="images/arrow_black_right.png" alt="Next">
+              </button>`,
+          responsive: [
+            {
+              breakpoint: 992,
+              settings: {
+                slidesToShow: 2
+              }
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 1
+              }
+            }
+          ]
+        });
+      });
+    }
+  
+    // Only run on homepage
+    if (window.location.pathname.includes('homepage.html')) {
+      loadPopularTutorials();
+    }
+  });
